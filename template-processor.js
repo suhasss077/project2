@@ -6,21 +6,20 @@ class TemplateProcessor {
     }
 
     fillIn(dictionary) {
-        let result = this.template;
+        let res = this.template;
 
         for (const key in dictionary) {
             if (dictionary.hasOwnProperty(key)) {
-                const placeholder = `{{${key}}}`;
-                const value = dictionary[key];
-                result = result.split(placeholder).join(value);
+                const val = dictionary[key];
+                const place = `{{${key}}}`;
+                res = res.split(place).join(val);
             }
         }
 
-        return result;
+        return res;
     }
 }
 
-// Example usage:
 const template = 'My favorite month is {{month}} but not the day {{day}} or the year {{year}}';
 const dateTemplate = new TemplateProcessor(template);
 
